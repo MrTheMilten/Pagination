@@ -7,11 +7,11 @@ class Pagination:
         for i in range(0,len(self.items),self.page_size):
             self.book.append(self.items[i:i+self.page_size])
     
-    # возырвщвет элемент на этой странице
+    # возвращает элементы на странице
     def get_visible_items(self):
         return self.book[self.page_number]
 
-    # предыдущая страница
+    # переход на предыдущую страницу
     def prev_page (self):
         if self.page_number==1:
             return self
@@ -19,7 +19,7 @@ class Pagination:
             self.page_number-=1
             return self
 
-    # следующая страницаf
+    # переход на следующую страницу
     def next_page(self):
         if self.page_number==len(self.book):
             return self
@@ -27,7 +27,7 @@ class Pagination:
             self.page_number+=1
             return self
 
-    # переход на первую тсраницу
+    # переход на первую страницу
     def first_page(self):
         self.page_number=0
         return self
@@ -37,7 +37,7 @@ class Pagination:
         self.page_number=len(self.book)-1
         return self
 
-    # переход на страницу
+    # переход на выбранную страницу
     def go_to_page(self,number):
         if number > len(self.book):
             self.page_number=len(self.book)-1
@@ -47,7 +47,7 @@ class Pagination:
             self.page_number=number-1
         return self
 
-    # возвращает номер текущей тсраницы
+    # возвращает номер текущей страницы
     def get_current_page(self):
         return self.page_number+1
 
